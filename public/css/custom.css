@@ -1,0 +1,65 @@
+.select2.select2-container {
+    width: 100% !important;
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+.select2.select2-container .select2-selection {
+    border: none;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    vertical-align: middle;
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e")
+        no-repeat right 1.1875rem center/8px 10px;
+    background-color: #fff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.select2.select2-container .select2-selection .select2-selection__rendered {
+    color: #495057;
+    line-height: 1.5;
+    padding: 0.625rem 2.1875rem 0.625rem 1.1875rem;
+}
+
+.select2.select2-container .select2-selection:focus {
+    border-color: #1abc9c;
+}
+
+.select2-container .select2-selection--single {
+    height: calc(1.5em + 1.25rem + 4px) !important;
+}
+
+.select2-container--default
+    .select2-selection--single
+    .select2-selection__arrow {
+    height: inherit !important;
+}
+
+.select2-container--default
+    .select2-selection--single
+    .select2-selection__arrow
+    b {
+    display: none;
+}
+
+.position-relative {
+    position: relative !important;
+}
+
+.togglePassword {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.summary .card-body i {
+    font-size: 40px;
+}
+
+.auth-content #img-logo {
+    max-width: 60% !important;
+}

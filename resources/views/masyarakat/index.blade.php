@@ -1,0 +1,130 @@
+@extends('layouts.default')
+
+@push('styles')
+    <!-- Datatables -->
+    <link href="{{ asset('plugins/datatables/datatables.min.css') }}" rel="stylesheet">
+@endpush
+
+@section('content')
+    <div class="page-header">
+        <div class="page-block">
+            <div class="row align-items-center">
+                <div class="col-md-12">
+                    <div class="page-header-title">
+                        <h5 class="m-b-10">Masyarakat</h5>
+                    </div>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="feather icon-home"></i></a>
+                        </li>
+                        <li class="breadcrumb-item"><a class="disabled">Masyarakat</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <a href="{{ route('masyarakat.create') }}" class="btn btn-primary"><i
+                            class="feather mr-2 icon-plus"></i>Tambah</a>
+                    <a href="{{ route('import') }}" class="btn btn-info"><i class="feather mr-2 icon-file-plus"></i>Import
+                        Excel</a>
+                </div>
+                <div class="card-body table-border-style">
+                    <div class="table-responsive">
+                        <table class="datatables table table-hover ">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" width="20px">No</th>
+                                    <th class="text-center">Nama</th>
+                                    <th class="text-center">Hubungan Keluarga</th>
+                                    @foreach ($kriteria as $item)
+                                        <th class="text-center" width="180px">{{ $item->nama }}</th>
+                                    @endforeach
+                                    <th class="text-center" width="120px">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($masyarakat as $element)
+                                    <tr>
+                                        <td class="text-center align-middle">{{ $loop->iteration }}</td>
+                                        <td class="align-middle">{{ $element->nama }}</td>
+                                        <td class="text-center align-middle">{{ $element->hubungan_keluarga }}</td>
+                                        @foreach ($element->penilaian as $item)
+                                            <td class="text-center align-middle">{{ $item->subKriteria->nama }}</td>
+                                        @endforeach
+                                        <td class="align-middle">
+                                            <div class="d-flex justify-content-center">
+                                                <a href="{{ route('masyarakat.edit', ['masyarakat' => $element->id]) }}"
+                                                    class="btn btn-sm btn-icon btn-icon-square btn-info mr-2"><i
+                                                        class="feather icon-edit"></i></a>
+                                                <form id="deleteForm"
+                                                    action="{{ route('masyarakat.destroy', ['masyarakat' => $element->id]) }}"
+                                                    method="post">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-icon btn-icon-square btn-danger deleteButton"
+                                                        data-name="{{ $element->nama }}"><i
+                                                            class=" feather icon-trash-2"></i></button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@push('scripts')
+    <!-- Datatables -->
+    <script src="{{ asset('plugins/datatables/datatables.min.js') }}"></script>
+
+    <!-- Sweet Alert 2 -->
+    <script src="{{ asset('plugins/sweetalert2/sweetalert2.all.min.js') }}"></script>
+
+    @if (session('message'))
+        <script>
+            Swal.fire({
+                title: 'Berhasil!',
+                text: '{{ session('message') }}',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500,
+            });
+        </script>
+    @endif
+
+    <script>
+        $(".datatables").dataTable();
+
+        $('.datatables tbody').on('click', 'button.deleteButton', function() {
+            let form = $(this).closest("form");
+            let deleteButton = form.find('button.deleteButton');
+
+            const name = deleteButton.data('name');
+
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: `Anda akan menghapus data masyarakat "${name}"`,
+                icon: 'warning',
+                showCancelButton: true,
+                reverseButtons: true,
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Batal',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    </script>
+@endpush
