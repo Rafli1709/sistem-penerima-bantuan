@@ -1,66 +1,103 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🎯 SPK Penerima Bantuan
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**SPK Penerima Bantuan** is a web-based decision support system developed to assist local governments in determining which individuals or families are eligible to receive social assistance (BPNT) in the Jati Bali area. The eligibility decision is made using the **Weighted Product (WP)** method based on multiple criteria and sub-criteria.
 
-## About Laravel
+This project was built as part of a final academic assignment.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📌 Key Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+-   ✅ Admin login system with "Remember Me" option
+-   🧾 Criteria and sub-criteria management
+-   👥 Community data management (add/import via Excel)
+-   ⚖️ Eligibility scoring with **Weighted Product** method
+-   📊 Automatically computed decision matrix
+-   💬 SweetAlert2 for beautiful pop-up messages
+-   📋 Responsive table display with **DataTables**
+-   🔎 Enhanced dropdowns using **Select2**
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠 Tech Stack
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+-   **Laravel 10** — Backend framework
+-   **PHP 8.1** — Server-side scripting language
+-   **MySQL** — Relational database
+-   **Bootstrap** — Frontend UI framework
+-   **DataTables** — Interactive tables
+-   **SweetAlert2** — Enhanced alert messages
+-   **Select2** — Customizable select boxes
+-   **Maatwebsite Excel** — Excel import functionality
+-   **mPDF** — PDF export and reporting
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 📸 Screenshots
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### 🔐 Login Page
 
-### Premium Partners
+![Login Page](./screenshots/screenshot-login.png)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### 📊 Dashboard
 
-## Contributing
+![Dashboard](./screenshots/screenshot-dashboard.png)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 📋 Community Data
 
-## Code of Conduct
+![Community Data](./screenshots/screenshot-community.png)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 📑 Criteria Management
 
-## Security Vulnerabilities
+![Criteria](./screenshots/screenshot-criteria.png)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### ⚖️ Sub-Criteria
 
-## License
+![Sub-Criteria](./screenshots/screenshot-subcriteria.png)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 🧮 Calculation Results
+
+![Calculation](./screenshots/screenshot-calculation.png)
+
+---
+
+## ⚙️ Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/Rafli1709/sistem-penerima-bantuan.git
+cd sistem-penerima-bantuan
+
+# 2. Install PHP dependencies
+composer install
+
+# 3. Copy environment config
+cp .env.example .env
+
+# 4. Generate application key
+php artisan key:generate
+
+# 5. Configure your .env database settings
+
+# 6. Run migrations
+php artisan migrate
+
+# 7. Serve the application
+php artisan serve
+```
+
+---
+
+## 📄 License
+
+MIT License © 2025  
+Developed by Muhammad Rafli
+
+---
+
+## 🙌 Contributions
+
+Contributions, issues, and feature requests are welcome!  
+Feel free to check the [issues page](https://github.com/Rafli1709/sistem-penerima-bantuan/issues) or submit a pull request.
+
+---
