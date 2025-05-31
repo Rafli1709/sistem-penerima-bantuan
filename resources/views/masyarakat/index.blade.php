@@ -2,7 +2,7 @@
 
 @push('styles')
     <!-- Datatables -->
-    <link href="{{ asset('plugins/datatables/datatables.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/datatables/datatables.min.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -84,10 +84,10 @@
 
 @push('scripts')
     <!-- Datatables -->
-    <script src="{{ asset('plugins/datatables/datatables.min.js') }}"></script>
+    <script src="{{ asset('vendor/datatables/datatables.min.js') }}"></script>
 
     <!-- Sweet Alert 2 -->
-    <script src="{{ asset('plugins/sweetalert2/sweetalert2.all.min.js') }}"></script>
+    <script src="{{ asset('vendor/sweetalert2/sweetalert2.all.min.js') }}"></script>
 
     @if (session('message'))
         <script>

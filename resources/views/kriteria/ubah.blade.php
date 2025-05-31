@@ -5,7 +5,7 @@
     <link href="{{ asset('/css/custom.css') }}" rel="stylesheet" />
 
     <!-- Select2 -->
-    <link href="{{ asset('plugins/select2/css/select2.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('vendor/select2/css/select2.min.css') }}" rel="stylesheet" />
 @endpush
 
 @section('content')
@@ -70,7 +70,7 @@
 
 @push('scripts')
     <!-- Select2 -->
-    <script src="{{ asset('plugins/select2/js/select2.min.js') }}"></script>
+    <script src="{{ asset('vendor/select2/js/select2.min.js') }}"></script>
 
     <script>
         $(document).ready(function() {
